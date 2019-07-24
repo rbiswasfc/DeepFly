@@ -78,9 +78,10 @@ import torch  # should not get errors
 
 
 ## Content based Recommender System
-I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](www.google.com)
+I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
 I have used TF-iDF to extract document features.
 * To-do: use spaCy to extract named entities and use them as additional features. 
 
 ### Web scraping
 I have scraped the Triposo website to build a point of interest database for countries in south-east Asia. 
+The [web scraping notebook](https://github.com/rbiswasfc/Recommender-System/blob/master/scraping/Triposo_Scrape.ipynb)
