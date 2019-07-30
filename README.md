@@ -8,6 +8,8 @@ tags:
 
 In this contribution, I aim at building a recommender system for tourist destinations around the globe. This is an end-to-end data science project, spanning all stages such as data collection, data exploration, data cleaning, feature extraction, model development, model validation and data visualization. These stages are briefly summarized in the following:
 
+![Pipeline](https://github.com/rbiswasfc/Recommender-System/blob/master/images/pipeline.PNG)
+
 ## Data collection
 
 
