@@ -6,23 +6,72 @@ tags:
 ---
 #### -- Project Status: Active
 
-In this contribution, I aim at building a recommender system for tourist destinations around the globe. This is an end-to-end data science project, spanning all stages such as data collection, data exploration, data cleaning, feature extraction, model development, model validation and data visualization. These stages are briefly summarized in the following:
+In this contribution, I aim at building a recommender system to offer personalized suggestions for tourist destinations around the globe. This is an end-to-end data science project, spanning all stages such as data collection, data exploration, data cleaning, feature extraction, model development, model validation and data visualization.
 
 ![Pipeline](https://github.com/rbiswasfc/Recommender-System/blob/master/images/pipeline.PNG)
 
+These stages are briefly summarized in the following.
+
 ## Data collection
 
+The objective is to build a dataset containing information of tourist destinations around the globe. After browsing through several travel sites, I decided to collect data from Triposo and TripAdvisor, since they offer comprehensive details and user reviews regarding tourist attractions.
+
+### Triposo
+
+Details of 250k Points Of Interest (POI) are collected from Triposo. The following attributes of each POI are stored:
+
+* Title: Name of POI
+* Location: Which location/city the POI belongs to
+* Country: country --> location --> POI
+* POI type: e.g. museum, lake, mountain, church
+* POI info: a short description of the POI
+* POI image: cover image of the POI
+* POI rank: Index of the POI withing the POI list for a location
+
+This [jupyter notebook]() contains details of the data collection steps:
+
+* Make a list of countries to include in the dataset
+* For each country find the urls of travel destinations
+* For each travel destination extract details of POIs
+
+![Scrape Location](https://github.com/rbiswasfc/Recommender-System/blob/master/images/location_triposo.PNG)
+
+![Scrape POI](https://github.com/rbiswasfc/Recommender-System/blob/master/images/POI_triposo.PNG)
+
+### TripAdvisor
+
+
+### Create POI database
+The extracted data is finally stored in MySQL database. The relationship schema is shown below:
+![Scrape POI](https://github.com/rbiswasfc/Recommender-System/blob/master/images/poi_db.PNG)
+
+
+## Data exploration
+tbc
+
+## Data cleaning
+tbc
+
+## Data preprocessing
+tbc
 
 ## Model development
+
 * Content-based recommender system
 * Collaborative filtering
 * Hybrid system
 
-
 Building a content based recommender system for travel destinations.
 
+## Model evaluation and monitoring
+tbc
 
-## Set up Anaconda environment
+## Outlook
+tbc
+
+## Appendix
+
+### Set up Anaconda environment
 
 It is good practice to create separate environment for each project. Anaconda distribution is commonly used for handling libraries in data science projects. Here, I will describe how to set up an Anaconda environment for the current project, which can be reproduced in another machine for recovering the experiment results. For more details, please refer to environment management [documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) by Anaconda.
 
