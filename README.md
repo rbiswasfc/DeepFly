@@ -16,7 +16,7 @@ These stages are briefly summarized in the following.
 
 The objective is to build a dataset containing information of tourist destinations around the globe. After browsing through several travel sites, I decided to collect data from Triposo and TripAdvisor, since they offer comprehensive details and user reviews regarding tourist attractions.
 
-### Triposo
+### [Triposo](https://github.com/rbiswasfc/Recommender-System/blob/master/scraping/scrape_triposo.ipynb)
 
 Details of 250k Points Of Interest (POI) are collected from Triposo. The following attributes of each POI are stored:
 
@@ -28,7 +28,7 @@ Details of 250k Points Of Interest (POI) are collected from Triposo. The followi
 * POI image: cover image of the POI
 * POI rank: Index of the POI withing the POI list for a location
 
-This [jupyter notebook]() contains details of the data collection steps:
+This [jupyter notebook](https://github.com/rbiswasfc/Recommender-System/blob/master/scraping/scrape_triposo.ipynb) contains details of the data collection steps:
 
 * Make a list of countries to include in the dataset
 * For each country find the urls of travel destinations
@@ -39,7 +39,7 @@ This [jupyter notebook]() contains details of the data collection steps:
 ![Scrape POI](https://github.com/rbiswasfc/Recommender-System/blob/master/images/POI_triposo.PNG)
 
 ### TripAdvisor
-
+debugging state...to be updated
 
 ### Create POI database
 The extracted data is finally stored in MySQL database. The relationship schema is shown below:
@@ -60,6 +60,11 @@ tbc
 * Content-based recommender system
 * Collaborative filtering
 * Hybrid system
+
+### Content based Recommender System
+I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
+I have used TF-iDF to extract document features.
+* To-do: use spaCy to extract named entities and use them as additional features.
 
 Building a content based recommender system for travel destinations.
 
@@ -132,12 +137,3 @@ import torch  # should not get errors
 
 ```$pip freeze > requirements.txt```
 
-
-## Content based Recommender System
-I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
-I have used TF-iDF to extract document features.
-* To-do: use spaCy to extract named entities and use them as additional features.
-
-### Web scraping
-I have scraped the Triposo website to build a point of interest database for countries in south-east Asia.
-The [web scraping notebook](https://github.com/rbiswasfc/Recommender-System/blob/master/scraping/Triposo_Scrape.ipynb)
