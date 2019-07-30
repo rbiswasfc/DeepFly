@@ -6,7 +6,12 @@ tags:
 ---
 #### -- Project Status: Active
 
-## Recommender systems
+In this contribution, I aim at building a recommender system for tourist destinations around the globe. This is an end-to-end data science project, spanning all stages such as data collection, data exploration, data cleaning, feature extraction, model development, model validation and data visualization. These stages are briefly summarized in the following:
+
+## Data collection
+
+
+## Model development
 * Content-based recommender system
 * Collaborative filtering
 * Hybrid system
@@ -80,8 +85,8 @@ import torch  # should not get errors
 ## Content based Recommender System
 I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
 I have used TF-iDF to extract document features.
-* To-do: use spaCy to extract named entities and use them as additional features. 
+* To-do: use spaCy to extract named entities and use them as additional features.
 
 ### Web scraping
-I have scraped the Triposo website to build a point of interest database for countries in south-east Asia. 
+I have scraped the Triposo website to build a point of interest database for countries in south-east Asia.
 The [web scraping notebook](https://github.com/rbiswasfc/Recommender-System/blob/master/scraping/Triposo_Scrape.ipynb)
