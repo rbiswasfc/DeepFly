@@ -47,19 +47,35 @@ The extracted data is finally stored in MySQL database. The relationship schema 
 
 
 ## Data exploration
-tbc
+* Max text length
+
 
 ## Data cleaning
-tbc
 
-## Data preprocessing
-tbc
+* Basic text cleaning
+* Text normalization
+
+## Feature extraction
+
+Features:
+
+For each POI extracted from Triposo:
+
+* TF-IDF features
+* Features from a pre-trained language model: BERT-base
+
+For each travel destination extracted from Triposo:
+* Aggregate information from all POIs under the travel destination
+* Get TF-iDF feature from aggregated document
 
 ## Model development
 
 * Content-based recommender system
 * Collaborative filtering
 * Hybrid system
+
+### Collaborative filtering
+* Get user profile in terms of latent variable
 
 ### Content based Recommender System
 I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
