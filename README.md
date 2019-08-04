@@ -107,6 +107,7 @@ Each POI is attributed to a POI type e.g. lake, mountain and sight. The top 15 P
 For each POI, a short explanatory description is scraped. The word count distribution of the descriptions are:
 
 ![Word count hist](https://github.com/rbiswasfc/Recommender-System/blob/master/images/word_count_poi.PNG)
+
 Histogram plot for number of words in text description of POIs
 
 Cluster analysis is next performed to identify patterns among the POIs. To this end, the TF-iDF features computed from the POI text descriptions are used. To find the optimum number of clusters, the elbow method is adopted.
@@ -158,27 +159,38 @@ A non-uniform rating distribution is apparent from the above plot. The average a
 
 ## Data cleaning
 
-* Basic text cleaning
-* Text normalization
+Although the information extracted from Triposo and TripAdvisor are well structured the most part, a few issues needed to be fixed before model development:
 
-## Feature extraction
+* POIs (Triposo) for which the description has less than 4 words are dropped
+* For POI description leading and trailing '\n' character is removed
+* Reviews from users (TripAdvisor) with less 5 reviews are dropped
+* Attractions (tripAdvisor) with less than 5 reviews are removed
 
-Features:
+## [Feature extraction](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/Feature_extraction.ipynb)
 
-For each POI extracted from Triposo:
+### TF-iDF
 
-* TF-IDF features
-* Features from a pre-trained language model: BERT-base
+After data cleaning, a total of 230625 POIs are considered for further analyses. For each of these POIs, a 5000 dimensional feature vector is computed using TF-iDF approach. The TF-iDF matrix shape is thus (230625, 5000). TF-iDF (term frequency-inverse document frequency) is a numerical statistic that is intended to reflect how important a word is to a document. Inverse document frequency term is used to bring down importance of words that appear in many documents.
 
-For each travel destination extracted from Triposo:
-* Aggregate information from all POIs under the travel destination
-* Get TF-iDF feature from aggregated document
+### Universal Sentence Encoder
 
-## Model development
+The Universal Sentence Encoder (by Google) converts any sentence into a meaningful vector.
 
-* Content-based recommender system
-* Collaborative filtering
-* Hybrid system
+![USE](https://github.com/rbiswasfc/Recommender-System/blob/master/images/use_google.PNG)
+
+The sentence encoder is built based on the Deep Average Network (DAN) architecture. It is pre-trained on a large corpus and can be used in a variety of tasks such as sentimental analysis, classification and so on. POI descriptions from Triposo are passed through the universal sentence encoder network to get a 512-dimensional vector representation for each POI. Note that, these 512 dimensional vectors are able to capture the underlying context sensitive semantic information, which is lacking in simple count based TF-iDF method.
+
+### Image features
+
+POIs for which a cover image is available, additional image based feature can be extracted using a pre-trained convNet architecture such as ResNet, Inception Network or EfficientNet. This step is under progress.
+
+### User-attraction interaction matrix
+
+The collaborative filtering mechanism leverages information from the item-attraction matrix. This interaction matrix can be created by joining the TA_reviews and TA_attractions table. (to be completed soon ...)
+
+## Recommender system
+
+### Content-based recommender system
 
 User inputs
 
@@ -201,16 +213,14 @@ Predictions
 
 ![Sys Rec 2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rec_deepfly_part_2.PNG)
 
+#### WikiVoysge
+
+I have built another content-based recommender system using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
+
 
 ### Collaborative filtering
 * Get user profile in terms of latent variable
 
-### Content based Recommender System
-I have built a base Content-based recommender system for travel destinations using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
-I have used TF-iDF to extract document features.
-* To-do: use spaCy to extract named entities and use them as additional features.
-
-Building a content based recommender system for travel destinations.
 
 ## Model evaluation and monitoring
 * To-do: develop a web application and track the model performance
