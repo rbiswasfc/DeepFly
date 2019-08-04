@@ -76,8 +76,10 @@ The extracted data is finally stored in MySQL database. The relationship schema 
 
 ## [Data exploration](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/EDA.ipynb)
 
+The notebook for data exploration can be accessed [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/EDA.ipynb).
+
 ### Triposo EDA
-Information regarding 230k travel attractions (POI) are extracted. A sample of 5 POIs for the dataset is sown below:
+Information regarding  230k+ travel attractions (POI) are extracted. A sample of 5 POIs is shown below:
 
 ![POI sample](https://github.com/rbiswasfc/Recommender-System/blob/master/images/sample_triposo_data.PNG)
 
@@ -102,35 +104,57 @@ Each POI is attributed to a POI type e.g. lake, mountain and sight. The top 15 P
 | university |    2533   |
 
 
-Each POI also has a short explanatory description. The word count distribution of the descriptions are shown below:
+For each POI, a short explanatory description is scraped. The word count distribution of the descriptions are:
 
 ![Word count hist](https://github.com/rbiswasfc/Recommender-System/blob/master/images/word_count_poi.PNG)
+Histogram plot for number of words in text description of POIs
 
-Next the POIs are divided into clusters based on their TF-iDF features.
+Cluster analysis is next performed to identify patterns among the POIs. To this end, the TF-iDF features computed from the POI text descriptions are used. To find the optimum number of clusters, the elbow method is adopted.
+
 
 ![cluster elbow](https://github.com/rbiswasfc/Recommender-System/blob/master/images/clustering_elbow.PNG)
 
-different clusters
+Subsequently, POIs are grouped into 12 clusters. The most frequent words in the top 4 clusters are shown in the following.
+
+#### Cluster 1
 
 ![cluster1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_1.PNG)
+
+#### Cluster 2
+
 ![cluster2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_2.PNG)
+
+#### Cluster 3
+
 ![cluster3](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_3.PNG)
+
+#### Cluster 4
+
 ![cluster4](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_4.PNG)
 
-### TripAdvisor
+Evidently, each cluster captures different POI types. For example, in cluster 1 and 2, the dominant POI types are waterfall and castle respectively.
 
-user rating frequency
+
+### TripAdvisor (TA)
+
+The purpose of scraping information from TripAdvisor is to create user-attraction matrix. It is thus important to have multiple reviews from each user in the dataset. A histogram plot for number of reviews per user is shown below:
+
 ![user rating frequency](https://github.com/rbiswasfc/Recommender-System/blob/master/images/user_review_comment_dist.PNG)
 
-sample rating
+As observed, 53k+ users have at least 5 reviews. A total of 436k+ reviews are considered from these users.
+
+##### Sample from TA_reviews table
 
 ![Rating Sample](https://github.com/rbiswasfc/Recommender-System/blob/master/images/sample_ratings.PNG)
 
-ratings by one user
+##### Reviews from a specific user
 ![One user ratings](https://github.com/rbiswasfc/Recommender-System/blob/master/images/ratings_one_user_TA.PNG)
 
-rating distribution
+The rating distribution is next explored. Each review rates an attraction from 1 to 5. The histogram for rating distribution is shown below:
+
 ![Rating Dist](https://github.com/rbiswasfc/Recommender-System/blob/master/images/TA_ratings_hist.PNG)
+
+A non-uniform rating distribution is apparent from the above plot. The average and standard deviation is computed to be 4.37 and 0.89 respectively.
 
 ## Data cleaning
 
