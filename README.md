@@ -69,13 +69,51 @@ The reviews tables stores all scraped reviews with the following fields:
 
 
 ### Create POI database
+
 The extracted data is finally stored in MySQL database. The relationship schema is shown below:
 ![Scrape POI](https://github.com/rbiswasfc/Recommender-System/blob/master/images/poi_db.PNG)
+##### -- to be updated: TA User table not implemented
 
+## [Data exploration](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/EDA.ipynb)
 
-## Data exploration
-* Max text length
+### Triposo EDA
+Information regarding 230k travel attractions (POI) are extracted. A sample of 5 POIs for the dataset is sown below:
 
+![POI sample](https://github.com/rbiswasfc/Recommender-System/blob/master/images/sample_triposo_data.PNG)
+
+Each POI is attributed to a POI type e.g. lake, mountain and sight. The top 15 POI type with respect to their frequency are:
+
+* sights x1
+* museum x2
+
+Each POI also has a short explanatory description. The word count distribution of the descriptions are shown below:
+
+![Word count hist](https://github.com/rbiswasfc/Recommender-System/blob/master/images/word_count_poi.PNG)
+
+Next the POIs are divided into clusters based on their TF-iDF features.
+
+![cluster elbow](https://github.com/rbiswasfc/Recommender-System/blob/master/images/clustering_elbow.PNG)
+
+different clusters
+![cluster1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_1.PNG)
+![cluster2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_2.PNG)
+![cluster3](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_3.PNG)
+![cluster4](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_4.PNG)
+
+### TripAdvisor
+
+user rating frequency
+![user rating frequency](https://github.com/rbiswasfc/Recommender-System/blob/master/images/user_review_comment_dist.PNG)
+
+sample rating
+
+![Rating Sample](https://github.com/rbiswasfc/Recommender-System/blob/master/images/sample_ratings.PNG)
+
+ratings by one user
+![One user ratings](https://github.com/rbiswasfc/Recommender-System/blob/master/images/ratings_one_user_TA.PNG)
+
+rating distribution
+![Rating Dist](https://github.com/rbiswasfc/Recommender-System/blob/master/images/TA_ratings_hist.PNG)
 
 ## Data cleaning
 
@@ -100,6 +138,27 @@ For each travel destination extracted from Triposo:
 * Content-based recommender system
 * Collaborative filtering
 * Hybrid system
+
+User inputs
+![Input 1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_1.PNG)
+
+![Input 2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_2.PNG)
+
+![Input 3](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_3.PNG)
+
+![Input 4](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_4.PNG)
+
+![Input 5](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_5.PNG)
+
+
+Predictions
+
+![Sys Rec DeepFLY](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rec_deepfly.PNG)
+
+![Sys Rec 1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rec_deepfly_part_1.PNG)
+
+![Sys Rec 2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rec_deepfly_part_2.PNG)
+
 
 ### Collaborative filtering
 * Get user profile in terms of latent variable
