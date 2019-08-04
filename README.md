@@ -83,8 +83,24 @@ Information regarding 230k travel attractions (POI) are extracted. A sample of 5
 
 Each POI is attributed to a POI type e.g. lake, mountain and sight. The top 15 POI type with respect to their frequency are:
 
-* sights x1
-* museum x2
+|  POI Type  | Frequency |
+|:----------:|:---------:|
+|    sight   |   46675   |
+|   museum   |   38720   |
+|    park    |   28234   |
+|   church   |   19405   |
+|  mountain  |    8556   |
+|  memorial  |    8493   |
+|   theater  |    6235   |
+|   bridge   |    5972   |
+|  city hall |    5286   |
+|   castle   |    5235   |
+|   library  |    5209   |
+|   temple   |    3863   |
+|    lake    |    3008   |
+|    tower   |    2592   |
+| university |    2533   |
+
 
 Each POI also has a short explanatory description. The word count distribution of the descriptions are shown below:
 
@@ -95,6 +111,7 @@ Next the POIs are divided into clusters based on their TF-iDF features.
 ![cluster elbow](https://github.com/rbiswasfc/Recommender-System/blob/master/images/clustering_elbow.PNG)
 
 different clusters
+
 ![cluster1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_1.PNG)
 ![cluster2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_2.PNG)
 ![cluster3](https://github.com/rbiswasfc/Recommender-System/blob/master/images/cluster_3.PNG)
@@ -140,6 +157,7 @@ For each travel destination extracted from Triposo:
 * Hybrid system
 
 User inputs
+
 ![Input 1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_1.PNG)
 
 ![Input 2](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_2.PNG)
