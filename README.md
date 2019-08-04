@@ -38,8 +38,35 @@ This [jupyter notebook](https://github.com/rbiswasfc/Recommender-System/blob/mas
 
 ![Scrape POI](https://github.com/rbiswasfc/Recommender-System/blob/master/images/POI_triposo.PNG)
 
-### TripAdvisor
-debugging state...to be updated
+### [TripAdvisor](https://github.com/rbiswasfc/Recommender-System/blob/master/scraping/scrape_data_with_apify.ipynb)
+
+The collaborative filtering mechanism utilizes underlying user-item interaction for making recommendations. In this case, the users and items are travelers and tourist attractions respectively. To build a user-item matrix, information from the TripAdvisor are scraped. The [APIFY TripAdvisor scraper](https://apify.com/petrpatek/tripadvisor-scraper) offers a ready-made and fast crawler to get the relevant information. Using APIFY, reviews of many tourist attractions in south-east Asia and Europe are extracted. Two separate tables are created: TA_attractions and TA_reviews.
+
+#### TA_attractions
+The table TA_attractions stores the following information for each attraction:
+
+* location_id: unique id for an attraction
+* name: name of the attraction
+* latitude and longitude: geographical coordinates
+* description: a short description of the attraction
+* web_url: url of the page
+* subcategory: type of attraction
+* subtype: more refined class of subcategory
+* num_reviews: total number of reviews for an attraction
+
+![Scrape TA Location](https://github.com/rbiswasfc/Recommender-System/blob/master/images/TA_attraction.PNG)
+
+#### TA_reviews
+The reviews tables stores all scraped reviews with the following fields:
+
+* user: TA user name of the reviewer
+* location_id: the unique id of the rated location
+* location_name: name of the location
+* rating: given rating for the attraction (1 to 5 stars)
+* comment: the text content of the review
+
+![Scrape TA Location](https://github.com/rbiswasfc/Recommender-System/blob/master/images/TA_reviews.PNG)
+
 
 ### Create POI database
 The extracted data is finally stored in MySQL database. The relationship schema is shown below:
@@ -85,9 +112,10 @@ I have used TF-iDF to extract document features.
 Building a content based recommender system for travel destinations.
 
 ## Model evaluation and monitoring
-tbc
+* To-do: develop a web application and track the model performance
+* To-do: adjust model parameters with user feedback (conduct a survey with web application)
 
-## Outlook
+## Upcoming features
 tbc
 
 ## Appendix
