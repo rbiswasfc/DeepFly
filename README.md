@@ -176,7 +176,7 @@ After data cleaning, a total of 230625 POIs are considered for further analyses.
 
 The Universal Sentence Encoder (by Google) converts any sentence into a meaningful vector.
 
-![USE](https://github.com/rbiswasfc/Recommender-System/blob/master/images/use_google.PNG)
+![USE](https://github.com/rbiswasfc/Recommender-System/blob/master/images/use_google.png)
 
 The sentence encoder is built based on the Deep Average Network (DAN) architecture. It is pre-trained on a large corpus and can be used in a variety of tasks such as sentimental analysis, classification and so on. POI descriptions from Triposo are passed through the universal sentence encoder network to get a 512-dimensional vector representation for each POI. Note that, these 512 dimensional vectors are able to capture the underlying context sensitive semantic information, which is lacking in simple count based TF-iDF method.
 
