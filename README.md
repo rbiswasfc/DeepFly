@@ -6,7 +6,20 @@ tags:
 ---
 #### -- Project Status: Active
 
-In this contribution, I aim at building a recommender system to offer personalized suggestions for tourist destinations around the globe. This is an end-to-end data science project, spanning all stages such as data collection, data exploration, data cleaning, feature extraction, model development, model validation and data visualization.
+## Objective
+
+To develop a web based platform that gives personalized recommendations for travel destinations and activities based on user preferences. The recommendations will be accompanied with a list of directly comparable features pertaining to the suggested destinations, such that the user(s) can delve deeper and emerge with a satisfied choice. 
+
+To this end, a bottom-up solution algorithm is adopted: 
+* At the top level, a list of countries are considered
+* Each country contains a list of travel destinations
+* Each destination contains a list of Points Of Interest (POI)
+
+![BottomUP](https://github.com/rbiswasfc/Recommender-System/blob/master/images/bottom_up_sys_rec.PNG)
+
+We will predict the scores of the POIs based on user profile. Next, these scores will be aggregated to give a net score for all travel destinations. The top N destinations will be recommended to the    user. The similar steps can we followed, to suggest countries that a user may be interested in. 
+
+This is an end-to-end data science project, spanning all stages such as data collection, data exploration, data cleaning, feature extraction, model development, model validation and data visualization.
 
 ![Pipeline](https://github.com/rbiswasfc/Recommender-System/blob/master/images/pipeline.PNG)
 
@@ -190,9 +203,12 @@ The collaborative filtering mechanism leverages information from the item-attrac
 
 ## Recommender system
 
-### Content-based recommender system
+### [Content-based recommender system](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/rec-sys-deepfly.ipynb)
 
-User inputs
+The notebook for developing the content-based recommender system is summarized [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/rec-sys-deepfly.ipynb). At the outset, the user will be presented with a list of POIs, along with their description and image. The user will next be requested to rate these POIs. A vector representation of the user profile will be computed based on the ratings.
+
+
+#### User inputs
 
 ![Input 1](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_1.PNG)
 
@@ -204,8 +220,16 @@ User inputs
 
 ![Input 5](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rating_inp_5.PNG)
 
+#### Scoring
 
-Predictions
+Once the user profile vector is obtained, the score of all other POIs are computed based on cosine similarity. Next, POI scores are combined to get a net score for each travel destination:
+
+![Scoring](https://github.com/rbiswasfc/Recommender-System/blob/master/images/scoring_deepfly.PNG)
+
+
+#### Predictions
+
+The top 10 recommendations are shown to the user:
 
 ![Sys Rec DeepFLY](https://github.com/rbiswasfc/Recommender-System/blob/master/images/rec_deepfly.PNG)
 
@@ -215,19 +239,22 @@ Predictions
 
 #### WikiVoysge
 
-I have built another content-based recommender system using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
+To compare the performance of hierarchical travel recommender system with traditional systems, I have built another content-based recommender system using the wiki-travel database. The notebooks describing the implementation can be found [here](https://github.com/rbiswasfc/Recommender-System/blob/master/notebooks/wikiVoyageRecSys.ipynb).
+
+#### To-do: compare bottom-up approach with one-scale approach
 
 
 ### Collaborative filtering
 * Get user profile in terms of latent variable
 
 
-## Model evaluation and monitoring
+## Model deployment and monitoring
 * To-do: develop a web application and track the model performance
 * To-do: adjust model parameters with user feedback (conduct a survey with web application)
 
 ## Upcoming features
-tbc
+* User constraints e.g. a particular country
+* Integration of flight and hotel information
 
 ## Appendix
 
